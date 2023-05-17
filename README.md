@@ -5,8 +5,8 @@ Carousel is a component to show the users a slideshow, usually images using View
 
 1) Add following lines, in viewPager's parentView
 
-    android:clipChildren="false"
-    android:clipToPadding="false"
+       android:clipChildren="false"
+       android:clipToPadding="false"
 
 2) Add some horizontal margin/padding in viewPager for preview. e.g. 40dp
 
