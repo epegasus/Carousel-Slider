@@ -8,7 +8,7 @@ Carousel is a component to show the users a slideshow, usually images using View
        android:clipChildren="false"
        android:clipToPadding="false"
 
-2) Add some horizontal margin/padding in viewPager for preview. e.g. 40dp
+2) Add some horizontal margin/padding in viewPager for preview. `e.g. 40dp`
 
 3) Add carousel effect using following line. By default, zoom effect is enabled. However, we can disable it by passing `false` as a parameter
 
