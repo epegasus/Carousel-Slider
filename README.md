@@ -3,18 +3,22 @@ Carousel is a component to show the users a slideshow, usually images using View
 
 ## Implementation
 
-1) Add following lines, in viewPager's parentView
+### Step 1
+Add following lines, in viewPager's parentView
 
        android:clipChildren="false"
        android:clipToPadding="false"
 
-2) Add some horizontal margin/padding in viewPager for preview. `e.g. 40dp`
+### Step 2
+Add some horizontal margin/padding in viewPager for preview. `e.g. 40dp`
 
-3) Add carousel effect using following line. By default, zoom effect is enabled. However, we can disable it by passing `false` as a parameter
+### Step 3
+Add carousel effect using following line. By default, zoom effect is enabled. However, we can disable it by passing `false` as a parameter
 
         binding.viewPager.addCarouselEffect(enableZoom = false)
-        
-4) Add an `extension-function` in `object` type class:
+
+### Step 4        
+Add an `extension-function` in `object` type class:
 
        fun ViewPager2.addCarouselEffect(enableZoom: Boolean = true) {
             clipChildren = false    // No clipping the left and right items
