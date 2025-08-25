@@ -51,3 +51,7 @@ https://github.com/epegasus/Carousel-Slider/assets/100923337/28170f0c-a99d-4c8b-
 ## Without Zoom Effect
 
 https://github.com/epegasus/Carousel-Slider/assets/100923337/1173cebd-9537-4f9d-9bcf-3b06c0c7d653
+
+## 📄 License
+MIT License. Use freely.  
+If you make something cool with this, send me a star ⭐ on GitHub!
