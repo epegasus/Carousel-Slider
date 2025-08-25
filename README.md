@@ -6,38 +6,43 @@ Carousel is a component to show the users a slideshow, usually images using View
 ### Step 1
 Add following lines, in viewPager's parentView
 
-        android:clipChildren="false"
-        android:clipToPadding="false"
+```
+android:clipChildren="false"
+android:clipToPadding="false"
+```
 
 ### Step 2
 Add some horizontal margin/padding in viewPager for preview.
-        e.g. 40dp
+```
+e.g. android:paddingHorizontal="40dp"
+```
 
 ### Step 3
 Add carousel effect using following line. By default, zoom effect is enabled. However, we can disable it by passing `false` as a parameter
-
-        binding.viewPager.addCarouselEffect(enableZoom = false)
+```
+binding.viewPager.addCarouselEffect(enableZoom = false)
+```
 
 ### Step 4        
 Add an `extension-function` in `object` type class:
+```
+fun ViewPager2.addCarouselEffect(enableZoom: Boolean = true) {
+    clipChildren = false    // No clipping the left and right items
+    clipToPadding = false   // Show the viewpager in full width without clipping the padding
+    offscreenPageLimit = 3  // Render the left and right items
+    (getChildAt(0) as RecyclerView).overScrollMode = RecyclerView.OVER_SCROLL_NEVER // Remove the scroll effect
 
-        fun ViewPager2.addCarouselEffect(enableZoom: Boolean = true) {
-            clipChildren = false    // No clipping the left and right items
-            clipToPadding = false   // Show the viewpager in full width without clipping the padding
-            offscreenPageLimit = 3  // Render the left and right items
-            (getChildAt(0) as RecyclerView).overScrollMode = RecyclerView.OVER_SCROLL_NEVER // Remove the scroll effect
-
-            val compositePageTransformer = CompositePageTransformer()
-            compositePageTransformer.addTransformer(MarginPageTransformer((20 * Resources.getSystem().displayMetrics.density).toInt()))
-            if (enableZoom) {
-                compositePageTransformer.addTransformer { page, position ->
-                    val r = 1 - abs(position)
-                    page.scaleY = (0.80f + r * 0.20f)
-                }
-            }
-            setPageTransformer(compositePageTransformer)
+    val compositePageTransformer = CompositePageTransformer()
+    compositePageTransformer.addTransformer(MarginPageTransformer((20 * Resources.getSystem().displayMetrics.density).toInt()))
+    if (enableZoom) {
+        compositePageTransformer.addTransformer { page, position ->
+        val r = 1 - abs(position)
+        page.scaleY = (0.80f + r * 0.20f)
         }
-
+    }
+    setPageTransformer(compositePageTransformer)
+}
+```
 
 ## Zoom Effect
 
