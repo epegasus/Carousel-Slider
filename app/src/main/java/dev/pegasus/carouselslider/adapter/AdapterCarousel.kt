@@ -2,11 +2,9 @@ package dev.pegasus.carouselslider.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import dev.pegasus.carouselslider.R
 import dev.pegasus.carouselslider.databinding.ItemCarouselBinding
 
 /**
@@ -21,12 +19,12 @@ class AdapterCarousel : ListAdapter<String, AdapterCarousel.CustomViewHolder>(cu
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = DataBindingUtil.inflate<ItemCarouselBinding>(layoutInflater, R.layout.item_carousel, parent, false)
+        val binding = ItemCarouselBinding.inflate(layoutInflater, parent, false)
         return CustomViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        holder.binding.item = getItem(position)
+        holder.binding.mtvTitle.text = getItem(position)
     }
 
     inner class CustomViewHolder(val binding: ItemCarouselBinding) : RecyclerView.ViewHolder(binding.root)
